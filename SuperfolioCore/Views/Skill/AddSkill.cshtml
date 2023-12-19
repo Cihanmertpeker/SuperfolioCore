@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">Yeni Yetenek Ekleme Paneli</p>
+            <form class="forms-sample" method="post">
+                <div clas="form-group">
+                    <label>Başlık</label>
+                    @Html.TextBoxFor(x=>x.Title, new{ @class="form-control"})
+                </div>
+                <br />
+                <div clas="form-group">
+                    <label>Değer</label>
+                    @Html.TextBoxFor(x => x.value, new { @class = "form-control" })
+                </div>       
+                <br />
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button class="btn btn-dark">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
