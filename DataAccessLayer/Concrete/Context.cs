@@ -25,5 +25,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Skill> Skills { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<AppUserMessage> AppUserMessages { get; set; }
     }
 }
