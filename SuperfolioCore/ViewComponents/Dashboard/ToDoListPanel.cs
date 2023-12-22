@@ -1,20 +1,18 @@
 ﻿using BusinessLayer.Concrete;
-using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SuperfolioCore.ViewComponents.Dashboard
 {
-    public class MessageList : ViewComponent
+    public class ToDoListPanel: ViewComponent
     {
-        AppUserMessageManager appUserMessageManager = new(new EfAppUserMessageDal());
+        ToDoListManager toDoListManager = new(new EfToDoListDal());
 
         public IViewComponentResult Invoke()
         {
-           var values = appUserMessageManager.GetAppUserMessagewithAppUserService();
+            var values = toDoListManager.TGetlist();
 
             return View(values);
         }
-    
     }
 }
