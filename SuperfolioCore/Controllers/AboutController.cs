@@ -12,9 +12,7 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Hakkımda";
-            ViewBag.v3 = "Hakkımda Sayfası";
+            
 
             var values = aboutManager.TGetById(1);
             return View(values);
@@ -24,9 +22,7 @@ namespace SuperfolioCore.Controllers
         [HttpPost]
         public IActionResult Index(About about)
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Hakkımda";
-            ViewBag.v3 = "Hakkımda Sayfası";
+           
             aboutManager.TUpdate(about);
 
             return RedirectToAction("Index", "Default");

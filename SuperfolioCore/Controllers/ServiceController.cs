@@ -12,9 +12,7 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.v1 = "Hizmet Listesi";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Listesi";
+            
             var values = serviceManager.TGetlist();
             return View(values);
         }
@@ -22,9 +20,6 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult AddService()
         {
-            ViewBag.v1 = "Hizmet Listesi";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Listesi";
             return View();
         }
 
@@ -44,9 +39,7 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult EditService(int id)
         {
-            ViewBag.v1 = "Hizmet Listesi";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Listesi";
+            
             var updatedService = serviceManager.TGetById(id);
 
             return View(updatedService);
@@ -55,9 +48,7 @@ namespace SuperfolioCore.Controllers
         [HttpPost]
         public IActionResult EditService(Service service)
         {
-            ViewBag.v1 = "Hizmet Listesi";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Listesi";
+           
             serviceManager.TUpdate(service);
 
             return RedirectToAction("Index");

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IAppUserMessageDal:IGenericDal<AppUserMessage>
+    public interface IWriterMessageDal:IGenericDal<WriterMessage>
     {
-        public List<AppUserMessage> GetAppUserMessageWithAppUser();
     }
 }

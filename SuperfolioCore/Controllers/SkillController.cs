@@ -11,9 +11,7 @@ namespace SuperfolioCore.Controllers
         SkillManager skillManager = new SkillManager(new EfSkillDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Yetenek Listesi";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Listesi";
+         
             var values = skillManager.TGetlist();
             return View(values);           
         }
@@ -21,9 +19,7 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult AddSkill() 
         {
-            ViewBag.v1 = "Yetenek Ekleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Ekleme";
+          
             return View();
         }
 
@@ -43,9 +39,7 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult EditSkill(int id)
         {
-            ViewBag.v1 = "Yetenek Güncelle";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Güncelle";
+            
             var updatedSkill = skillManager.TGetById(id);
 
             return View(updatedSkill);
@@ -54,9 +48,7 @@ namespace SuperfolioCore.Controllers
         [HttpPost]
         public IActionResult EditSkill(Skill skill)
         {
-            ViewBag.v1 = "Yetenek Güncelle";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Güncelle";
+          
             skillManager.TUpdate(skill);
 
             return RedirectToAction("Index");

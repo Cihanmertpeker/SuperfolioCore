@@ -17,9 +17,7 @@ namespace SuperfolioCore.Controllers
         PortfolioManager portfolioManager = new(new EfPortfolioDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projelerim";
-            ViewBag.v3 = "Proje Listesi";
+            
 
             var values = portfolioManager.TGetlist();
 
@@ -29,18 +27,14 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult AddPortfolio()
         {
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projelerim";
-            ViewBag.v3 = "Proje Ekleme";
+           
             return View();
         }
 
         [HttpPost]
         public IActionResult AddPortfolio(Portfolio p)
         {
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projelerim";
-            ViewBag.v3 = "Proje Ekleme";
+            
 
             PortfolioValidator validations = new();
             FluentValidation.Results.ValidationResult results = validations.Validate(p);
@@ -72,9 +66,7 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult EditPortfolio(int id)
         {
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projelerim";
-            ViewBag.v3 = "Proje Düzenleme";
+          
             var updatedPortfolio = portfolioManager.TGetById(id);
 
             return View(updatedPortfolio);
@@ -83,9 +75,7 @@ namespace SuperfolioCore.Controllers
         [HttpPost]
         public IActionResult EditPortfolio(Portfolio portfolio)
         {
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projelerim";
-            ViewBag.v3 = "Proje Düzenleme";
+          
 
             PortfolioValidator validations = new();
             ValidationResult results = validations.Validate(portfolio);

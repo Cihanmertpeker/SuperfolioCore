@@ -1,13 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SuperfolioCore.Areas.Writer.Controllers
 {
+    [Area("Writer")]
+    [Authorize]
     public class DefaultController : Controller
-    {
-        [Area("Writer")]
+    {       
+
+        AnnouncementManager announcementManager = new(new EfAnnouncementDal());
+
         public IActionResult Index()
         {
-            return View();
+            var values = announcementManager.TGetlist();
+
+            return View(values);
+        }
+
+        [HttpGet]
+        public IActionResult AnnouncementDetails(int id)
+        {
+            Announcement announcement = announcementManager.TGetById(id);
+            return View(announcement);
         }
     }
 }

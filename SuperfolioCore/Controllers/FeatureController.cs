@@ -12,9 +12,7 @@ namespace SuperfolioCore.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Öne Çıkanlar";
-            ViewBag.v3 = "Öne Çıkanlar Sayfası";
+            
 
             var values = featureManager.TGetById(1);
             return View(values);
@@ -24,9 +22,7 @@ namespace SuperfolioCore.Controllers
         [HttpPost]
         public IActionResult Index(Feature feature)
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Öne Çıkanlar";
-            ViewBag.v3 = "Öne Çıkanlar Sayfası";
+           
             featureManager.TUpdate(feature);
 
             return RedirectToAction("Index","Default");
